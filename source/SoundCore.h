@@ -1,6 +1,7 @@
 #pragma once
 
-#define MAX_SAMPLES (16*1024)
+//#define MAX_SAMPLES (16*1024)
+#define MAX_SAMPLES (2*1024)
 
 #define SAFE_RELEASE(p)      { if(p) { (p)->Release(); (p)=NULL; } }
 

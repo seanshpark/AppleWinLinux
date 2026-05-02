@@ -6,10 +6,10 @@ endif()
 
 project(applewin HOMEPAGE_URL "https://github.com/audetto/AppleWin")
 
-option(BUILD_APPLEN   "build ncurses frontend")
-option(BUILD_QAPPLE   "build Qt5 frontend")
-option(BUILD_SA2      "build SDL2 frontend")
-option(BUILD_LIBRETRO "build libretro core")
+option(BUILD_APPLEN   "build ncurses frontend" OFF)
+option(BUILD_QAPPLE   "build Qt5 frontend" OFF)
+option(BUILD_SA2      "build SDL2 frontend" ON)
+option(BUILD_LIBRETRO "build libretro core" OFF)
 
 if (NOT (BUILD_APPLEN OR BUILD_QAPPLE OR BUILD_SA2 OR BUILD_LIBRETRO))
   message(NOTICE "Building everything by default")
@@ -44,6 +44,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 execute_process(
   COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_BINARY_DIR}/compile_commands.json ${CMAKE_SOURCE_DIR}/compile_commands.json
 )
+
+# for 32 bit
+add_compile_options(-march=armv6+vfpv2 -mfloat-abi=hard)
 
 include_directories(source)
 

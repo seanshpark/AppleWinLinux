@@ -56,7 +56,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 // NB. Setting g_nSPKR_NumChannels=1 still works (ie. mono).
 // . Retain it for a while in case there are regressions with the new 2-channel code, then remove it.
 static const unsigned short g_nSPKR_NumChannels = 2;
-static const uint32_t g_dwDSSpkrBufferSize = MAX_SAMPLES * sizeof(short) * g_nSPKR_NumChannels;
+static const uint32_t g_dwDSSpkrBufferSize = MAX_SAMPLES * sizeof(short) * g_nSPKR_NumChannels * 2;
 
 //-------------------------------------
 

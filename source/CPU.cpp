@@ -607,6 +607,8 @@ static __forceinline bool IRQ(ULONG& uExecutedCycles, BOOL& flagc, BOOL& flagn, 
 
 static uint32_t InternalCpuExecute(const uint32_t uTotalCycles, const bool bVideoUpdate)
 {
+	return Cpu65C02(uTotalCycles, bVideoUpdate);	// Enhanced Apple //e
+
 	if (g_nAppMode == MODE_RUNNING || g_nAppMode == MODE_BENCHMARK)
 	{
 		if (!GetIsMemCacheValid())
